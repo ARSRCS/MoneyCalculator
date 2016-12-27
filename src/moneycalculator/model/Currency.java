@@ -22,5 +22,10 @@ public class Currency {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return code; //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

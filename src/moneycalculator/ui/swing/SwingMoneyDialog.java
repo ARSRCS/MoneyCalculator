@@ -17,16 +17,18 @@ import moneycalculator.ui.MoneyDialog;
 public class SwingMoneyDialog extends JPanel implements MoneyDialog{
     private Currency currency;
     private String amount;
+    private final Currency[] currencies;
     @Override
     public Money get() {
         return new Money(Double.parseDouble(amount), currency);
     }
 
-    public SwingMoneyDialog() {
+    public SwingMoneyDialog(Currency[] currencies) {
         this.add(amount());
         this.add(currency());
+        this.currencies = currencies;
     }
-
+    
     private Component amount() {
         JTextField textField = new JTextField("100");
         textField.setColumns(10);
@@ -36,7 +38,7 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog{
     }
 
     private Component currency() {
-        JComboBox comboBox = new JComboBox(currencies());
+        JComboBox comboBox = new JComboBox(currencies);
         comboBox.addItemListener(currencyChanged());
         currency = (Currency) comboBox.getSelectedItem();
         return comboBox;
@@ -66,14 +68,6 @@ public class SwingMoneyDialog extends JPanel implements MoneyDialog{
                 catch (BadLocationException ex) {
                 }
             }
-        };
-    }
-
-    private Currency[] currencies() {
-        return new Currency[] {
-            new Currency("$", "USD", "Dólar Americano"),
-            new Currency("$", "CAD", "Dólar Canadiense"),
-            new Currency("£", "GBP", "Libra Esterlina"),
         };
     }
 
