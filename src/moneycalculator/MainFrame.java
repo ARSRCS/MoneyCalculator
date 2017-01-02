@@ -25,6 +25,7 @@ public class MainFrame extends JFrame{
     private final Currency[] currencies;
 
     public MainFrame(Currency[] currencies){
+        this.currencies = currencies;
         this.setTitle("Money Calculator");
         this.setSize(400, 400);
         this.setLocationRelativeTo(null);
@@ -33,7 +34,6 @@ public class MainFrame extends JFrame{
         this.add(moneyDialog(), BorderLayout.CENTER);
         this.add(toolbar(), BorderLayout.SOUTH);
         this.setVisible(true);
-        this.currencies = currencies;
     }
 
     public MoneyDialog getMoneyDialog() {
