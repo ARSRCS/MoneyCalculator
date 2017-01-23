@@ -67,7 +67,7 @@ public class MainFrame extends JFrame{
     }
 
     private JButton calculateButton() {
-        final JButton button = new JButton("Calculate");
+        final JButton button = new JButton("To Euros (€)");
         button.addActionListener(calculate());
         return button;
     }
